@@ -34,17 +34,23 @@ A travel company wants to identify which customers are most likely to buy a newl
 
 ## 🔧 Project Workflow
 
-1. **Data Cleaning** — Handling inconsistent categories, missing values imputed using median/mode
-2. **Exploratory Data Analysis (EDA)** — Distribution plots, correlation heatmap, category analysis
-3. **Feature Engineering** — Label encoding for categorical variables
-4. **Model Training** — Random Forest Classifier
-5. **Evaluation** — ROC-AUC curve, classification report
-
+1.Data Cleaning — fixed inconsistent labels, imputed missing values (median/mode), dropped CustomerID
+2.Feature Engineering — combined NumberOfPersonVisiting + NumberOfChildrenVisiting into a single TotalVisiting feature
+3.Preprocessing — train-test split (80/20), ColumnTransformer with OneHotEncoder + StandardScaler
+4.Modeling — trained Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, AdaBoost, XGBoost
+5.Tuning — RandomizedSearchCV on Random Forest and XGBoost
+6.Evaluation — compared models on Accuracy, F1, Precision, Recall, ROC-AUC
 ---
 
 ## 📊 Model Performance
 
-**Algorithm Used:** Random Forest Classifier
+**Algorithm Used:** 
+• Logistic Regression
+• Decision Tree Classifier
+• Random Forest Classifier
+• AdaBoost Classifier
+• Gradient Boosting Classifier
+• XGBoost Classifier
 
 | Metric | Score |
 |---|---|
