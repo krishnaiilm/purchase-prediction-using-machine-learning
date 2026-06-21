@@ -33,13 +33,15 @@ A travel company wants to identify which customers are most likely to buy a newl
 ---
 
 ## 🔧 Project Workflow
+Project Workflow :-
 
-1.Data Cleaning — fixed inconsistent labels, imputed missing values (median/mode), dropped CustomerID
-2.Feature Engineering — combined NumberOfPersonVisiting + NumberOfChildrenVisiting into a single TotalVisiting feature
-3.Preprocessing — train-test split (80/20), ColumnTransformer with OneHotEncoder + StandardScaler
-4.Modeling — trained Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, AdaBoost, XGBoost
-5.Tuning — RandomizedSearchCV on Random Forest and XGBoost
-6.Evaluation — compared models on Accuracy, F1, Precision, Recall, ROC-AUC
+• Data Cleaning — handled missing values using median and mode imputation, fixed inconsistent labels, and removed unnecessary features such as CustomerID.
+• Feature Engineering — created a new TotalVisiting feature by combining NumberOfPersonVisiting and NumberOfChildrenVisiting to better represent the total number of travelers.
+• Data Preprocessing — performed an 80:20 train-test split and built a preprocessing pipeline using ColumnTransformer with OneHotEncoder for categorical features and StandardScaler for numerical features.
+• Model Development — trained and evaluated multiple machine learning models including Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, AdaBoost, and XGBoost.
+• Hyperparameter Tuning — optimized Random Forest and XGBoost models using RandomizedSearchCV to improve predictive performance.
+• Model Evaluation — compared all models using Accuracy, Precision, Recall, F1-Score, and ROC-AUC metrics to identify the best-performing model for holiday package purchase prediction.
+• Model Selection — selected the final model based on overall performance, generalization ability, and robustness on unseen test data.
 ---
 
 ## 📊 Model Performance
