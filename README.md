@@ -1,124 +1,198 @@
 # 🏖️ Holiday Package Purchase Prediction
 
-A machine learning project to predict whether a customer will purchase a holiday travel package, based on demographic and behavioral features.
+A machine learning classification project that predicts whether a customer is likely to purchase a holiday travel package based on demographic, travel, and behavioral attributes. The project follows an end-to-end machine learning pipeline, including data preprocessing, feature engineering, model development, hyperparameter tuning, and model evaluation.
 
 ---
 
 ## 📌 Problem Statement
 
-A travel company wants to identify which customers are most likely to buy a newly launched holiday package. By predicting purchase likelihood, the company can target marketing efforts more efficiently and reduce sales costs.
+Travel companies invest significant resources in marketing campaigns and customer outreach. Identifying customers who are more likely to purchase a holiday package can improve conversion rates and reduce marketing costs.
+
+The objective of this project is to build a predictive machine learning model that helps travel companies target potential customers more effectively by forecasting purchase likelihood.
 
 ---
 
 ## 📂 Dataset
 
-- **File:** `Travel.csv`
-- **Source:** Customer data from a travel company
-- **Target Variable:** `ProdTaken` (1 = Package Purchased, 0 = Not Purchased)
+* Dataset: `Travel.csv`
+* Target Variable: `ProdTaken`
 
-**Key Features:**
-| Feature | Description |
-|---|---|
-| Age | Age of the customer |
-| MonthlyIncome | Monthly income of the customer |
-| TypeofContact | How the customer was contacted |
-| DurationOfPitch | Duration of the sales pitch (minutes) |
-| NumberOfFollowups | Number of follow-up calls made |
-| PreferredPropertyStar | Preferred hotel star rating |
-| NumberOfTrips | Number of trips taken per year |
-| NumberOfChildrenVisiting | Number of children accompanying |
-| MaritalStatus | Marital status of the customer |
-| Gender | Gender of the customer |
+  * `1` → Customer purchased the holiday package
+  * `0` → Customer did not purchase the holiday package
+
+### Key Features
+
+| Feature                  | Description                     |
+| ------------------------ | ------------------------------- |
+| Age                      | Age of the customer             |
+| MonthlyIncome            | Monthly income                  |
+| TypeofContact            | Mode of customer contact        |
+| DurationOfPitch          | Sales pitch duration            |
+| NumberOfFollowups        | Number of follow-up calls       |
+| PreferredPropertyStar    | Preferred hotel star rating     |
+| NumberOfTrips            | Number of trips taken           |
+| MaritalStatus            | Marital status                  |
+| Gender                   | Gender of the customer          |
+| NumberOfChildrenVisiting | Number of accompanying children |
 
 ---
 
 ## 🔧 Project Workflow
-Project Workflow :-
 
-• Data Cleaning — handled missing values using median and mode imputation, fixed inconsistent labels, and removed unnecessary features such as CustomerID.
-• Feature Engineering — created a new TotalVisiting feature by combining NumberOfPersonVisiting and NumberOfChildrenVisiting to better represent the total number of travelers.
-• Data Preprocessing — performed an 80:20 train-test split and built a preprocessing pipeline using ColumnTransformer with OneHotEncoder for categorical features and StandardScaler for numerical features.
-• Model Development — trained and evaluated multiple machine learning models including Logistic Regression, Decision Tree, Random Forest, Gradient Boosting, AdaBoost, and XGBoost.
-• Hyperparameter Tuning — optimized Random Forest and XGBoost models using RandomizedSearchCV to improve predictive performance.
-• Model Evaluation — compared all models using Accuracy, Precision, Recall, F1-Score, and ROC-AUC metrics to identify the best-performing model for holiday package purchase prediction.
-• Model Selection — selected the final model based on overall performance, generalization ability, and robustness on unseen test data.
+### Data Cleaning
+
+* Handled missing values using median and mode imputation.
+* Fixed inconsistent categorical labels.
+* Removed unnecessary identifiers such as `CustomerID`.
+
+### Feature Engineering
+
+* Created a new feature called `TotalVisiting` by combining:
+
+  * `NumberOfPersonVisiting`
+  * `NumberOfChildrenVisiting`
+* Improved representation of total travelers for better model learning.
+
+### Data Preprocessing
+
+* Performed an 80:20 Train-Test Split.
+* Built a preprocessing pipeline using:
+
+  * `OneHotEncoder` for categorical variables.
+  * `StandardScaler` for numerical variables.
+  * `ColumnTransformer` for efficient feature transformation.
+
+### Model Development
+
+Implemented and compared multiple machine learning algorithms:
+
+* Logistic Regression
+* Decision Tree Classifier
+* Random Forest Classifier
+* AdaBoost Classifier
+* Gradient Boosting Classifier
+* XGBoost Classifier
+
+### Hyperparameter Tuning
+
+* Applied `RandomizedSearchCV` to optimize:
+
+  * Random Forest
+  * XGBoost
+* Improved model performance and generalization.
+
+### Model Evaluation
+
+Compared models using:
+
+* Accuracy Score
+* Precision Score
+* Recall Score
+* F1-Score
+* ROC-AUC Score
+
+### Model Selection
+
+Selected the best-performing model based on overall predictive performance and robustness on unseen data.
+
 ---
 
-## 📊 Model Performance
+## 📊 Machine Learning Algorithms Used
 
-**Algorithm Used:** 
-• Logistic Regression
-• Decision Tree Classifier
-• Random Forest Classifier
-• AdaBoost Classifier
-• Gradient Boosting Classifier
-• XGBoost Classifier
-
-| Metric | Score |
-|---|---|
-| ROC-AUC | **0.83** |
-
-### ROC Curve
-
-![ROC AUC Curve](images/auc.png)
-
-The model achieves an AUC of **0.83**, indicating strong discriminatory ability between customers who will and won't purchase the holiday package.
+* Logistic Regression
+* Decision Tree
+* Random Forest
+* AdaBoost
+* Gradient Boosting
+* XGBoost
 
 ---
 
-## 🛠️ Tech Stack
+## 📈 Model Performance
 
-- **Language:** Python 3
-- **Libraries:** pandas, numpy, matplotlib, seaborn, plotly, scikit-learn
-- **Environment:** Jupyter Notebook
+The performance of all machine learning models was evaluated and compared using multiple classification metrics.
+
+| Metric  | Score |
+| ------- | ----- |
+| ROC-AUC | 0.83  |
+
+The final model achieved a ROC-AUC score of **0.83**, demonstrating strong capability in distinguishing customers who are likely to purchase a holiday package from those who are not.
+
+---
+
+## 🛠️ Technologies Used
+
+### Programming Language
+
+* Python
+
+### Libraries
+
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Scikit-Learn
+* XGBoost
+
+### Development Environment
+
+* Jupyter Notebook
 
 ---
 
 ## 🚀 How to Run
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/holiday-package-prediction.git
-   cd holiday-package-prediction
-   ```
+### Clone the Repository
 
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+git clone https://github.com/YOUR_USERNAME/holiday-package-prediction.git
+cd holiday-package-prediction
+```
 
-3. Open the notebook:
-   ```bash
-   jupyter notebook notebooks/Holiday_package_prediction.ipynb
-   ```
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Notebook
+
+```bash
+jupyter notebook Holiday_package_prediction.ipynb
+```
 
 ---
 
 ## 📁 Repository Structure
 
-```
+```text
 holiday-package-prediction/
 │
-├── data/
-│   └── Travel.csv
-├── notebooks/
-│   └── Holiday_package_prediction.ipynb
-├── images/
-│   └── auc.png
+├── Holiday_package_prediction.ipynb
+├── Travel.csv
 ├── README.md
 └── requirements.txt
 ```
 
 ---
 
-## 👨‍💻 Author
+## 🎯 Project Outcome
 
-**Krishna**  
-B.Tech Student | IILM University, Greater Noida  
-Aspiring Data Scientist | ML Enthusiast
+This project demonstrates how machine learning can be used to identify potential customers for targeted marketing campaigns. By comparing multiple classification algorithms and optimizing their performance, the solution helps improve customer acquisition strategies and business decision-making.
 
 ---
 
-## 📄 License
+## 👨‍💻 Author
 
-This project is open-source and available under the [MIT License](LICENSE).
+Krishna Kumar
+
+B.Tech (Computer Science Engineering - AI & ML)
+
+IILM University, Greater Noida
+
+AI/ML Enthusiast | Aspiring Data Scientist
+
+---
+
+## ⭐ If you found this project useful, consider giving it a star on GitHub.
